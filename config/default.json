@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://rox:rox123@devconnector.1gbl3.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "rtran123",
+  "githubClientId": "c9ce1ba243f0ee78e6c7",
+  "githubSecret": "ead71093335ae40cdc1c61a6df1235b9d07a4d95"
+}
