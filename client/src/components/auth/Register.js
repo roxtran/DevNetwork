@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { setAlert } from '../../actions/alert'
+import { register } from '../../actions/auth'
+import PropTypes from 'prop-types'
 
-const Register = () => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,18 +18,18 @@ const Register = () => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault()
     if (password !== password2) {
-      console.log('Passwords do not match!')
+      setAlert('Passwords do not match!', 'danger')
     } else {
-      console.log(formData)
+      register({ name, email, password })
     }
   }
 
   return (
     <div className='h-screen bg-gray-100 sm:p-12 flex flex-col items-center'>
-      <div className='mx-auto max-w-md px-8 py-10 bg-white border-0 shadow-lg sm:rounded-2xl'>
+      <div className='mx-auto w-96 max-w-md px-8 py-10 bg-white border-0 shadow-lg rounded-2xl'>
         <h1 className='h1'>Sign Up</h1>
         <h2 className='h2'>Create Your Account</h2>
         <form onSubmit={(e) => onSubmit(e)}>
@@ -93,4 +97,9 @@ const Register = () => {
   )
 }
 
-export default Register
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired
+}
+
+export default connect(null, { setAlert, register })(Register)

@@ -6,7 +6,7 @@ const Landing = () => {
     <section className='w-screen h-screen bg-hero-bg-img absolute top-0 left-0 z-0 flex flex-col justify-center items-center'>
       <div>
         <div className='text-center text-white'>
-          <h1 className='h1 text-5xl'>Developer Social</h1>
+          <h1 className='h1 text-5xl'>Developer Network</h1>
           <p className='mb-5'>
             Where developers can create profile/portfolio, share posts and get
             help from each other.

@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className='navbar'>
       <h1 className='text-xl font-bold'>
         <a href='/'>
-          <i className='fas fa-code'> DevSocial</i>
+          <i className='fas fa-code'> DevNetwork</i>
         </a>
       </h1>
       <ul className='flex '>

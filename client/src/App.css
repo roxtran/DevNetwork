@@ -31,4 +31,7 @@ body {
   .input {
     @apply pt-3 pb-2 w-full border-b-2 border-gray-200 focus:border-black focus:outline-none focus:ring-0;
   }
+  .alert-danger {
+    @apply bg-red-500 text-white my-2 p-2;
+  }
 }
