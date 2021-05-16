@@ -1,27 +1,60 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { logout } from '../../actions/auth'
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <ul className='flex '>
+      <li className='mr-4 hover:text-gray-200'>
+        <Link to='/dashboard'>
+          <i className='fas fa-user'></i>{' '}
+          <span className='hide-sm'>Dashboard</span>
+        </Link>
+      </li>
+      <li className='mr-4 hover:text-gray-200'>
+        <a onClick={logout} href='#!'>
+          <i className='fas fa-sign-out-alt'></i>{' '}
+          <span className='hide-sm'>Logout</span>
+        </a>
+      </li>
+    </ul>
+  )
+
+  const guestLinks = (
+    <ul className='flex '>
+      <li className='mr-4 hover:text-gray-200'>
+        <Link to='/profiles'>Developers</Link>
+      </li>
+      <li className='mr-4 hover:text-gray-200'>
+        <Link to='/register'>Register</Link>
+      </li>
+      <li className='hover:text-gray-200'>
+        <Link to='/login'>Login</Link>
+      </li>
+    </ul>
+  )
+
   return (
     <nav className='navbar'>
       <h1 className='text-xl font-bold'>
         <a href='/'>
-          <i className='fas fa-code'> DevNetwork</i>
+          <i className='fas fa-code'></i> DevNetwork
         </a>
       </h1>
-      <ul className='flex '>
-        <li className='mr-4 hover:text-gray-200'>
-          <Link to='/profiles'>Developers</Link>
-        </li>
-        <li className='mr-4 hover:text-gray-200'>
-          <Link to='/register'>Register</Link>
-        </li>
-        <li className='hover:text-gray-200'>
-          <Link to='/login'>Login</Link>
-        </li>
-      </ul>
+      {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </nav>
   )
 }
 
-export default Navbar
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+export default connect(mapStateToProps, { logout })(Navbar)
