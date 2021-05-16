@@ -26,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   return (
-    <div className='h-screen bg-gray-100 sm:p-12 flex flex-col items-center'>
+    <div className='h-screen sm:p-12 flex flex-col items-center'>
       <div className='mx-auto w-96 max-w-md px-8 py-10 bg-white border-0 shadow-lg rounded-2xl'>
         <h1 className='h1'>Login</h1>
         <h2 className='h2'>Sig Into Your Account</h2>

@@ -12,6 +12,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+td {
+  padding: 0.5rem;
+}
+
 @layer components {
   .navbar {
     @apply h-12 bg-purple-700 opacity-80 text-white flex justify-between items-center px-6 relative z-10;
@@ -24,6 +28,9 @@ body {
   }
   .btn-white {
     @apply bg-gray-300 hover:bg-gray-200 text-black;
+  }
+  .btn-red {
+    @apply bg-red-500 hover:bg-red-600 text-white;
   }
   .h1 {
     @apply font-bold text-4xl mb-2;
@@ -51,5 +58,8 @@ body {
   }
   .form-text {
     @apply text-xs text-gray-600;
+  }
+  .th {
+    @apply border-white border-solid border-2 py-2;
   }
 }
