@@ -6,6 +6,13 @@ import Navbar from './components/layout/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Alert from './components/layout/Alert'
+import Dashboard from './components/dashboard/Dashboard'
+import PrivateRoute from './components/routing/PrivateRoute'
+import CreateProfile from './components/create-forms/CreateProfile'
+import EditProfile from './components/create-forms/EditProfile'
+import AddExperience from './components/create-forms/AddExperience'
+import AddEducation from './components/create-forms/AddEducation'
+import Profiles from './components/profiles/Profiles'
 // Redux
 import { Provider } from 'react-redux'
 import store from './store'
@@ -13,12 +20,6 @@ import setAuthToken from './utils/setAuthToken'
 import { loadUser } from './actions/auth'
 // styles
 import './App.css'
-import Dashboard from './components/dashboard/Dashboard'
-import PrivateRoute from './components/routing/PrivateRoute'
-import CreateProfile from './components/create-forms/CreateProfile'
-import EditProfile from './components/create-forms/EditProfile'
-import AddExperience from './components/create-forms/AddExperience'
-import AddEducation from './components/create-forms/AddEducation'
 
 if (localStorage.token) {
   setAuthToken(localStorage.token)
@@ -39,6 +40,7 @@ const App = () => {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
+            <Route exact path='/profiles' component={Profiles} />
             <PrivateRoute exact path='/dashboard' component={Dashboard} />
             <PrivateRoute
               exact

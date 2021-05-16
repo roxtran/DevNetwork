@@ -63,7 +63,7 @@ const EditProfile = ({
       instagram:
         loading || !profile.social.instagram ? '' : profile.social.instagram
     }) // eslint-disable-next-line
-  }, [loading])
+  }, [loading, getCurrentProfile])
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value })

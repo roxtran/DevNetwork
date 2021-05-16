@@ -18,11 +18,11 @@ const Dashboard = ({
     getCurrentProfile()
   }, [getCurrentProfile])
 
-  return loading && profile === null ? (
+  return loading || profile === null ? (
     <Spinner />
   ) : (
-    <div className='mx-auto lg:w-10/12'>
-      <h1 className='h1 mt-4'>Dashboard</h1>
+    <div className='mx-auto lg:w-10/12 py-6'>
+      <h1 className='h1'>Dashboard</h1>
       <h2 className='h2'>
         <i className='fas fa-user'></i> Welcome {user && user.name}
       </h2>

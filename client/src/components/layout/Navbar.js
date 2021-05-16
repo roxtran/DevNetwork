@@ -8,6 +8,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul className='flex '>
       <li className='mr-4 hover:text-gray-200'>
+        <Link to='/profiles'>
+          <span className='hide-sm'>Developers</span>
+        </Link>
+      </li>
+      <li className='mr-4 hover:text-gray-200'>
         <Link to='/dashboard'>
           <i className='fas fa-user'></i>{' '}
           <span className='hide-sm'>Dashboard</span>
@@ -25,7 +30,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul className='flex '>
       <li className='mr-4 hover:text-gray-200'>
-        <Link to='/profiles'>Developers</Link>
+        <Link to='/profiles'>
+          <span className='hide-sm'>Developers</span>
+        </Link>
       </li>
       <li className='mr-4 hover:text-gray-200'>
         <Link to='/register'>Register</Link>
